@@ -1,0 +1,54 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "f4895fba6543c04ffa83a3ae849713fd",
+    "packages": [
+        {
+            "name": "wpscholar/wp-rest-menu-endpoints",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wpscholar/wp-rest-menu-endpoints.git",
+                "reference": "19026d82c10c929665ad954b763c49a485be6d8e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wpscholar/wp-rest-menu-endpoints/zipball/19026d82c10c929665ad954b763c49a485be6d8e",
+                "reference": "19026d82c10c929665ad954b763c49a485be6d8e",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ],
+                "psr-4": {
+                    "wpscholar\\API\\Menus\\": "includes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Micah Wood",
+                    "email": "micah@wpscholar.com"
+                }
+            ],
+            "description": "WordPress REST API endpoints for menus",
+            "time": "2019-01-21T16:23:20+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

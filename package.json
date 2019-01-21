@@ -1,0 +1,48 @@
+{
+  "name": "wp-menu-ui-vue-prototype",
+  "description": "A Vue prototype for WordPress menu UI",
+  "version": "1.0.0",
+  "license": "GPL-2.0-or-later",
+  "private": true,
+  "scripts": {
+    "build": "cross-env NODE_ENV=production webpack",
+    "start": "webpack --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wpscholar/wp-menu-ui-vue-prototype.git"
+  },
+  "author": "Micah Wood <micah@wpscholar.com>",
+  "bugs": {
+    "url": "https://github.com/wpscholar/wp-menu-ui-vue-prototype/issues"
+  },
+  "homepage": "https://github.com/wpscholar/wp-menu-ui-vue-prototype#readme",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@wordpress/babel-preset-default": "^3.0.2",
+    "@wordpress/browserslist-config": "^2.2.3",
+    "autoprefixer": "^9.4.6",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "cross-env": "^5.2.0",
+    "css-loader": "^2.1.0",
+    "file-loader": "^3.0.1",
+    "mini-css-extract-plugin": "^0.5.0",
+    "node-sass": "^4.11.0",
+    "postcss-loader": "^3.0.0",
+    "raw-loader": "^1.0.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "vue-loader": "^15.5.1",
+    "vue-template-compiler": "^2.5.22",
+    "webpack": "^4.29.0",
+    "webpack-cli": "^3.2.1"
+  },
+  "dependencies": {
+    "@wordpress/api-fetch": "^2.2.8",
+    "@wordpress/hooks": "^2.0.5",
+    "vue": "^2.5.22",
+    "vuedraggable": "^2.17.0"
+  }
+}

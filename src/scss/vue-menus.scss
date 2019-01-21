@@ -1,0 +1,61 @@
+.vue-menus {
+
+  margin: 1em 0;
+
+  &__heading {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  &__header {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 1em;
+    margin-bottom: 1em;
+  }
+
+  &__main {
+
+    &-header {
+      background: #f5f5f5;
+      border-bottom: 1px solid #ddd;
+      padding: 1em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &-content {
+      background: white;
+      padding: 1em;
+      margin: 0;
+    }
+
+    &-footer {
+      background: #f5f5f5;
+      border-top: 1px solid #ddd;
+      padding: 1em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+  }
+
+  &__menu-items {
+    .menu-item {
+      width: 90%;
+      max-width: 382px;
+    }
+    .menu-item-handle {
+      width: 100%;
+    }
+  }
+
+  .delete {
+    color: #a00;
+    font-size: 13px;
+    font-weight: normal;
+  }
+
+}

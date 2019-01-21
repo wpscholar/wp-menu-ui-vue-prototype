@@ -1,0 +1,22 @@
+{
+  "name": "wpscholar/wp-menu-ui-vue-prototype",
+  "description": "A Vue prototype for WordPress menu UI",
+  "type": "library",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Micah Wood",
+      "email": "micah@wpscholar.com"
+    }
+  ],
+  "scripts": {
+    "post-create-project-cmd": [
+      "npm install",
+      "npm run build",
+      "npx webpack"
+    ]
+  },
+  "require": {
+    "wpscholar/wp-rest-menu-endpoints": "^1.0"
+  }
+}
