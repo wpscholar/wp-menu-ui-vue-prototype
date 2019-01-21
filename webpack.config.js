@@ -68,23 +68,6 @@ module.exports = function () {
 				'vue$': 'vue/dist/vue.esm.js' // 'vue/dist/vue.common.js' for webpack 1
 			}
 		},
-		externals: {
-			'@wordpress/a11y': 'wp.a11y',
-			'@wordpress/components': 'wp.components', // Not really a package.
-			'@wordpress/blocks': 'wp.blocks', // Not really a package.
-			'@wordpress/data': 'wp.data', // Not really a package.
-			'@wordpress/date': 'wp.date', // Not really a package.
-			'@wordpress/element': 'wp.element', // Not really a package.
-			'@wordpress/i18n': 'wp.i18n',
-			'@wordpress/utils': 'wp.utils', // Not really a package
-			backbone: 'Backbone',
-			jquery: 'jQuery',
-			lodash: 'lodash',
-			moment: 'moment',
-			react: 'React',
-			'react-dom': 'ReactDOM',
-			tinymce: 'tinymce',
-		},
 		module: {
 			rules: [
 				{
