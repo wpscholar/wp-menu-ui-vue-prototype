@@ -71,7 +71,7 @@
 							<legend class="menu-settings-group-name howto">Display location</legend>
 							<div class="menu-settings-input checkbox-input" v-for="menuLocation in menuLocations">
 								<input type="checkbox" :id="`locations-${menuLocation.slug}`" :name="menuLocation.slug"
-									   :value="menuLocation.id" :checked="menuLocation.id === activeMenuId"/>
+									   :value="menuLocation.id" :checked="menuLocation.id === activeMenuId && activeMenuId !== 0"/>
 								<label :for="`locations-${menuLocation.slug}`">{{menuLocation.label}}</label>
 								<span v-if="menuLocation.id && menuLocation.id !== activeMenuId"
 									  class="theme-location-set">(Currently set to: {{getNavMenuNameById(menuLocation.id)}})
@@ -81,7 +81,8 @@
 					</div>
 				</div>
 				<div class="vue-menus__main-footer">
-					<a href="#" class="delete" @click.prevent="onDeleteMenu">Delete Menu</a>
+					<a v-if="activeMenuId" href="#" class="delete" @click.prevent="onDeleteMenu">Delete Menu</a>
+					<span v-else></span>
 					<button type="button" class="button button-primary" @click="onSaveMenu">{{saveMenuText}}</button>
 				</div>
 			</div>
@@ -245,7 +246,10 @@
 						(response) => {
 							this.menus.push( response );
 							this.menus.sort( sortBy( 'name' ) );
+							this.updateMenuLocations( response.term_id );
+							this.saveMenuSettings( response.term_id );
 							this.activeMenuId = response.term_id;
+							this.setSuccessMessage( `Menu "${response.name}" created!` );
 						},
 						(response) => {
 							console.log( response );
@@ -284,7 +288,10 @@
 							const index = findIndex( this.menus, {term_id: response.term_id} );
 							this.menus[index] = response;
 							this.menus.sort( sortBy( 'name' ) );
+							this.updateMenuLocations( response.term_id );
+							this.saveMenuSettings( response.term_id );
 							this.activeMenuId = response.term_id;
+							this.setSuccessMessage( `Menu "${response.name}" saved!` );
 						},
 						(response) => {
 							console.log( response );
@@ -292,10 +299,10 @@
 						}
 					);
 			},
-			saveMenuSettings() {
+			saveMenuSettings(menuId) {
 				this.fetch( {
 					method: 'POST',
-					path: `/wp/v2/menus/${this.activeMenuId}/settings`,
+					path: `/wp/v2/menus/${menuId}/settings`,
 					data: this.menuSettings
 				} )
 					.then(
@@ -355,8 +362,6 @@
 			},
 			onSaveMenu() {
 				this.activeMenuId ? this.saveMenu() : this.createMenu();
-				this.updateMenuLocations();
-				this.saveMenuSettings();
 			},
 			onRemoveMenuItem(id) {
 				const menuItem = find( this.menuItems, {ID: id} );
@@ -443,15 +448,15 @@
 				} );
 				return item;
 			},
-			updateMenuLocations() {
+			updateMenuLocations(menuId) {
 				Array.from( this.$el.querySelectorAll( '.menu-settings .menu-theme-locations input[type="checkbox"]' ) ).forEach( (input) => {
 					const slug = input.getAttribute( 'name' );
 					const id = parseInt( input.getAttribute( 'value' ), 10 );
 					const checked = input.checked;
-					if (!checked && id === this.activeMenuId) {
+					if (!checked && id === menuId) {
 						this.setMenuLocation( slug, 0 );
 					} else if (checked) {
-						this.setMenuLocation( slug, this.activeMenuId );
+						this.setMenuLocation( slug, menuId );
 					}
 				} );
 			}
